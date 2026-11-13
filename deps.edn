@@ -1,0 +1,35 @@
+{:paths   ["src/main"]
+
+ :deps    {com.fulcrologic/statecharts {:mvn/version "1.4.0"}
+           com.fulcrologic/fulcro      {:mvn/version "3.10.1"}
+           com.fulcrologic/guardrails  {:mvn/version "1.3.2"}
+           edn-query-language/eql      {:mvn/version "2025.09.27"}
+           com.taoensso/timbre         {:mvn/version "6.8.0"}}
+
+ :aliases {:test              {:extra-paths ["src/test"]
+                               :extra-deps  {lambdaisland/kaocha     {:mvn/version "1.91.1392"}
+                                             org.clojure/test.check  {:mvn/version "1.1.2"}
+                                             fulcrologic/fulcro-spec {:mvn/version "3.2.10"}}}
+
+           ;; Develop against a local checkout of statecharts instead of the released jar.
+           :local-statecharts {:override-deps {com.fulcrologic/statecharts {:local/root "../statecharts"}}}
+
+           :nrepl             {:extra-paths ["src/main" "src/test"]
+                               :extra-deps  {nrepl/nrepl {:mvn/version "1.5.1"}}
+                               ;; this allows nrepl to interrupt runaway repl evals
+                               :jvm-opts    ["-Djdk.attach.allowAttachSelf" "-Dguardrails.enabled" "-Dguardrails.mode=:pro"]
+                               :main-opts   ["-m" "nrepl.cmdline"]}
+
+           :clj-tests         {:extra-paths ["src/test"]
+                               :main-opts   ["-m" "kaocha.runner"]
+                               :extra-deps  {lambdaisland/kaocha {:mvn/version "1.91.1392"}}}
+
+           :dev               {:extra-paths ["src/dev" "src/demo"]
+                               :extra-deps  {thheller/shadow-cljs                   {:mvn/version "3.3.4"}
+                                             com.fulcrologic/fulcro-devtools-remote {:mvn/version "0.2.8"}
+                                             com.fulcrologic/fulcro-inspect         {:mvn/version "1.0.5"}
+                                             org.clojure/clojure                    {:mvn/version "1.12.3"}
+                                             org.clojure/clojurescript              {:mvn/version "1.12.116"}
+                                             funcool/promesa                        {:mvn/version "11.0.678"}
+                                             binaryage/devtools                     {:mvn/version "1.0.7"}
+                                             org.clojure/tools.namespace            {:mvn/version "1.5.0"}}}}}

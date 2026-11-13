@@ -1,0 +1,35 @@
+= Fulcro Statechart Routing
+
+image:https://img.shields.io/clojars/v/com.fulcrologic/fulcro-statechart-routing.svg[link=https://clojars.org/com.fulcrologic/fulcro-statechart-routing]
+image:https://github.com/fulcrologic/fulcro-statechart-routing/actions/workflows/tests.yml/badge.svg?branch=main["Tests", link="https://github.com/fulcrologic/fulcro-statechart-routing/actions/workflows/tests.yml"]
+
+Statechart-driven UI routing for Fulcro applications, built on
+https://github.com/fulcrologic/statecharts[com.fulcrologic/statecharts].
+
+* Routes are statechart states. Guards, denial, and async loads on entry are ordinary statechart features.
+* Bidirectional URL synchronization (browser back/forward, bookmarks) with a pluggable URL codec.
+* Cross-chart routing: invoked child charts manage their own sub-routes (`istate`, `:route/reachable`).
+* Deep busy-checking across the invocation tree.
+* Route configuration validation.
+* Headless testing via `SimulatedURLHistory`.
+
+== Usage
+
+[source,clojure]
+-----
+{:deps {com.fulcrologic/fulcro-statechart-routing {:mvn/version "1.0.0-RC1"}}}
+-----
+
+See the link:Guide.adoc[Guide] for setup, API, and testing documentation.
+
+This code originally shipped inside `com.fulcrologic/statecharts` 1.4.0-RC1 through RC20 and keeps the same namespaces,
+so migrating only requires adding this dependency (and statecharts 1.4.0 or later).
+
+== Development
+
+* CLJ tests: `make tests` (or kaocha from a REPL with guardrails enabled; see `docs/ai/running-tests.md`).
+* Demo app: `pnpm exec shadow-cljs -A:dev watch routing-demo2`, then open http://localhost:8092.
+
+== License
+
+MIT. See link:LICENSE[LICENSE].

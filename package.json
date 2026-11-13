@@ -1,0 +1,28 @@
+{
+  "name": "fulcro-statechart-routing",
+  "version": "1.0.0",
+  "description": "Statechart-driven UI routing for Fulcro",
+  "packageManager": "pnpm@11.21.0",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.21.0"
+    }
+  },
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "karma": "6.3.17",
+    "karma-chrome-launcher": "3.1.0",
+    "karma-cljs-test": "0.1.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "shadow-cljs": "3.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fulcrologic/fulcro-statechart-routing.git"
+  },
+  "author": "",
+  "license": "MIT"
+}

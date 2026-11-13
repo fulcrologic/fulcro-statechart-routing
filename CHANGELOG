@@ -1,0 +1,6 @@
+1.0.0-RC1
+---------
+
+* Initial release. Extracted from com.fulcrologic/statecharts 1.4.0-RC20, where it lived under
+  `com.fulcrologic.statecharts.integration.fulcro.routing*`. Namespaces are unchanged.
+* Requires com.fulcrologic/statecharts 1.4.0 or later (the first release without the routing code).
